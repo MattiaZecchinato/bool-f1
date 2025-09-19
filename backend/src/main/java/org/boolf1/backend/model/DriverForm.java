@@ -3,6 +3,7 @@ package org.boolf1.backend.model;
 import java.time.LocalDate;
 
 public class DriverForm {
+    private Integer id;
     private String firstName;
     private String lastName;
     private Integer carNumber;
@@ -10,6 +11,14 @@ public class DriverForm {
     private String pfpImage;
     private String nationality;
     private Integer teamId;
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return this.firstName;
