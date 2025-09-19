@@ -43,7 +43,7 @@ public class Driver {
     private String nationality;
 
     @ManyToOne
-    @JoinColumn(name = "team_id", nullable = false)
+    @JoinColumn(name = "team_id")
     private Team team;
 
     public Integer getId() {
