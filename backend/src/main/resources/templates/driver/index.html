@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivers</title>
+    <th:block th:replace="~{fragments/bootstrap :: bootstrap}"></th:block>
+</head>
+
+<body>
+    <header>
+        <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+        <h1>Drivers</h1>
+    </header>
+    <main>
+        <div>
+            <a th:href="@{/drivers/create}">Add New Driver</a>
+        </div>
+
+        <ul th:if="${driversList.size() > 0}">
+            <li th:each="driver : ${driversList}" th:object="${driver}">
+                <p>[[*{firstName}]]</p>
+                <div>
+                    <a th:href="@{/drivers/{id}(id=*{id})}">Statistic</a>
+                </div>
+            </li>
+        </ul>
+
+        <div th:if="${driversList.size() == 0}">
+            No driver found
+        </div>
+    </main>
+</body>
+
+</html>
