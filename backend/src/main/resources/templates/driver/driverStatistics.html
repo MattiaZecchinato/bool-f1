@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[${driverStats.firstName} + ' ' + ${driverStats.lastName}]]</title>
+</head>
+
+<body>
+    <header>
+        <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+    </header>
+    <main>
+        <div th:object="${driverStats}">
+            <div>
+                <p>[[*{firstName}]]</p>
+                <p>[[*{lastName}]]</p>
+                <div>
+                    <p>[[*{nationality}]]</p>
+                    <p>[[*{team.name}]]</p>
+                    <p>[[*{carNumber}]]</p>
+                </div>
+            </div>
+            <div>
+                <img th:src="*{pfpImage}" th:alt="*{firstName} + ' ' + *{lastName}">
+            </div>
+            <a th:href="@{/drivers/edit/{id}(id=*{id})}">Edit</a>
+        </div>
+    </main>
+</body>
+
+</html>
