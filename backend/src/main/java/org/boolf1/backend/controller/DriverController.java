@@ -1,14 +1,21 @@
 package org.boolf1.backend.controller;
 
-import org.boolf1.backend.repository.DriverRepository;
+import org.boolf1.backend.model.Driver;
+import org.boolf1.backend.model.DriverForm;
 import org.boolf1.backend.service.DriverService;
+import org.boolf1.backend.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import jakarta.validation.Valid;
 
 @Controller
 @CrossOrigin
@@ -16,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DriverController {
     @Autowired
     private DriverService driverService;
+
+    @Autowired
+    private TeamService teamService;
 
     @GetMapping
     public String index(Model model) {
@@ -31,5 +41,32 @@ public class DriverController {
         model.addAttribute("driverStats", driverService.getById(driverId));
 
         return "driver/driverStatistics";
+    }
+
+    @GetMapping("/create")
+    public String create(Model model) {
+
+        model.addAttribute("driver", new DriverForm());
+        model.addAttribute("create", true);
+        model.addAttribute("teamsList", teamService.getAll());
+
+        return "driver/createOrEdit";
+    }
+
+    @PostMapping("/create")
+    public String store(@Valid @ModelAttribute("driver") DriverForm formDriver, BindingResult bindingResult,
+            Model model) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("create", true);
+            return "driver/createOrEdit";
+        }
+
+        // set Driver to DTO DriverForm
+        Driver driver = driverService.setDriver(formDriver);
+
+        driverService.store(driver);
+
+        return "redirect:/drivers";
     }
 }
