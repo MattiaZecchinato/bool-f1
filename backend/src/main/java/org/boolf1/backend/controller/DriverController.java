@@ -69,4 +69,35 @@ public class DriverController {
 
         return "redirect:/drivers";
     }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer driverId, Model model) {
+
+        Driver driver = driverService.getById(driverId);
+
+        // set DTO DriverForm to Driver
+        model.addAttribute("driver", driverService.setDriverForm(driver));
+        model.addAttribute("create", false);
+        model.addAttribute("teamsList", teamService.getAll());
+
+        return "driver/createOrEdit";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@Valid @ModelAttribute("driver") DriverForm formDriver, BindingResult bindingResult,
+            @PathVariable("id") Integer driverId,
+            Model model) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("create", false);
+            return "driver/createOrEdit";
+        }
+
+        // set Driver to DTO DriverForm
+        Driver driver = driverService.setDriver(formDriver);
+
+        driverService.update(driver);
+
+        return "redirect:/drivers/" + driverId;
+    }
 }
