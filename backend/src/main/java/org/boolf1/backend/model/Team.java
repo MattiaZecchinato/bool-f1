@@ -1,12 +1,14 @@
 package org.boolf1.backend.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -33,6 +35,9 @@ public class Team {
 
     @Column(name = "car_img")
     private String carImg;
+
+    @OneToMany(mappedBy = "team")
+    private List<Driver> drivers;
 
     public Integer getId() {
         return id;
@@ -80,5 +85,13 @@ public class Team {
 
     public void setCarImg(String carImg) {
         this.carImg = carImg;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 }
