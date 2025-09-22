@@ -1,5 +1,7 @@
 package org.boolf1.backend.controller;
 
+import java.util.NoSuchElementException;
+
 import org.boolf1.backend.model.Driver;
 import org.boolf1.backend.model.DriverForm;
 import org.boolf1.backend.service.DriverService;
@@ -99,5 +101,17 @@ public class DriverController {
         driverService.update(driver);
 
         return "redirect:/drivers/" + driverId;
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer driverId) {
+
+        if (driverService.getById(driverId) == null) {
+            throw new NoSuchElementException("Driver not found");
+        }
+
+        driverService.deleteById(driverId);
+
+        return "redirect:/drivers";
     }
 }
