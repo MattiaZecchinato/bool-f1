@@ -60,4 +60,28 @@ public class TeamController {
 
         return "redirect:/teams";
     }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") Integer teamId, Model model) {
+
+        model.addAttribute("team", teamService.getById(teamId));
+        model.addAttribute("create", false);
+
+        return "team/createOrEdit";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@Valid @ModelAttribute("team") Team formTeam, BindingResult bindingResult,
+            @PathVariable("id") Integer teamId,
+            Model model) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("create", false);
+            return "team/createOrEdit";
+        }
+
+        teamService.update(formTeam);
+
+        return "redirect:/drivers/" + teamId;
+    }
 }
