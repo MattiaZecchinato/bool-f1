@@ -1,5 +1,7 @@
 package org.boolf1.backend.controller;
 
+import java.util.NoSuchElementException;
+
 import org.boolf1.backend.model.Team;
 import org.boolf1.backend.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +85,17 @@ public class TeamController {
         teamService.update(formTeam);
 
         return "redirect:/drivers/" + teamId;
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer teamId) {
+
+        if (teamService.getById(teamId) == null) {
+            throw new NoSuchElementException("Team not found");
+        }
+
+        teamService.deleteById(teamId);
+
+        return "redirect:/teams";
     }
 }
