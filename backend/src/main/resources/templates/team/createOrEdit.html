@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[${create} ? 'Add new Team' : 'Edit']]</title>
+    <th:block th:replace="~{fragments/styles :: styles}"></th:block>
+</head>
+
+<body>
+    <header>
+        <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+    </header>
+
+    <main>
+        <div class="form-box">
+            <form th:action="${create} ? @{/teams/create} : @{/teams/update/{id}(id=${team.id})}" th:object="${team}"
+                method="post">
+                <div class="input-box">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" th:field="*{name}">
+                    <div th:if="${#fields.hasErrors('name')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('name')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <input type="text" id="nationality" th:field="*{nationality}">
+                    <div th:if="${#fields.hasErrors('nationality')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('nationality')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="entryYear" class="form-label">Entry Year</label>
+                    <input type="date" id="entryYear" th:field="*{entryYear}">
+                    <div th:if="${#fields.hasErrors('entryYear')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('entryYear')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="logoImg" class="form-label">Logo Image</label>
+                    <input type="text" id="logoImg" th:field="*{logoImg}">
+                    <div th:if="${#fields.hasErrors('logoImg')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('logoImg')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="carImg" class="form-label">Car Image</label>
+                    <input type="text" id="carImg" th:field="*{carImg}">
+                    <div th:if="${#fields.hasErrors('carImg')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('carImg')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-crud">[[${create} ?
+                    'Create' : 'Update']]</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
