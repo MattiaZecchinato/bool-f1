@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:if="${create}">Add new Driver</title>
-    <title th:unless="${create}">Edit</title>
+    <title>[[${create} ? 'Add new Driver' : 'Edit']]</title>
+    <th:block th:replace="~{fragments/styles :: styles}"></th:block>
 </head>
 
 <body>
@@ -14,73 +14,75 @@
     </header>
 
     <main>
-        <form th:action="${create} ? @{/drivers/create} : @{/drivers/update/{id}(id=${driver.id})}"
-            th:object="${driver}" method="post">
-            <div>
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" th:field="*{firstName}">
-                <div th:if="${#fields.hasErrors('firstName')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('firstName')}">[[${err}]]</li>
-                    </ul>
+        <div class="form-box">
+            <form th:action="${create} ? @{/drivers/create} : @{/drivers/update/{id}(id=${driver.id})}"
+                th:object="${driver}" method="post">
+                <div class="input-box">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" id="firstName" th:field="*{firstName}">
+                    <div th:if="${#fields.hasErrors('firstName')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('firstName')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" th:field="*{lastName}">
-                <div th:if="${#fields.hasErrors('lastName')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('lastName')}">[[${err}]]</li>
-                    </ul>
+                <div class="input-box">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" id="lastName" th:field="*{lastName}">
+                    <div th:if="${#fields.hasErrors('lastName')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('lastName')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="carNumber">Car Number</label>
-                <input type="number" id="carNumber" th:field="*{carNumber}">
-                <div th:if="${#fields.hasErrors('carNumber')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('carNumber')}">[[${err}]]</li>
-                    </ul>
+                <div class="input-box">
+                    <label for="carNumber" class="form-label">Car Number</label>
+                    <input type="number" id="carNumber" th:field="*{carNumber}">
+                    <div th:if="${#fields.hasErrors('carNumber')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('carNumber')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="dateBirth">Date of Birth</label>
-                <input type="date" id="dateBirth" th:field="*{dateBirth}">
-                <div th:if="${#fields.hasErrors('dateBirth')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('dateBirth')}">[[${err}]]</li>
-                    </ul>
+                <div class="input-box">
+                    <label for="dateBirth" class="form-label">Date of Birth</label>
+                    <input type="date" id="dateBirth" th:field="*{dateBirth}">
+                    <div th:if=" ${#fields.hasErrors('dateBirth')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('dateBirth')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="nationality">Nationality</label>
-                <input type="text" id="nationality" th:field="*{nationality}">
-                <div th:if="${#fields.hasErrors('nationality')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('nationality')}">[[${err}]]</li>
-                    </ul>
+                <div class="input-box">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <input type="text" id="nationality" th:field="*{nationality}">
+                    <div th:if="${#fields.hasErrors('nationality')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('nationality')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="pfpImage">Url Profile Image</label>
-                <input type="text" id="pfpImage" th:field="*{pfpImage}">
-                <div th:if="${#fields.hasErrors('pfpImage')}">
-                    <ul>
-                        <li th:each="err : ${#fields.errors('pfpImage')}">[[${err}]]</li>
-                    </ul>
+                <div class="input-box">
+                    <label for="pfpImage" class="form-label">Url Profile Image</label>
+                    <input type="text" id="pfpImage" th:field="*{pfpImage}">
+                    <div th:if="${#fields.hasErrors('pfpImage')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('pfpImage')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <label for="team">Team</label>
-                <select id="team" th:field="*{teamId}">
-                    <option value="">None</option>
-                    <option th:each="team : ${teamsList}" th:value="${team.id}">[[${team.name}]]</option>
-                </select>
-            </div>
+                <div class="input-box">
+                    <label for="team" class="form-label">Team</label>
+                    <select id="team" th:field="*{teamId}" class="form-select">
+                        <option selected value="">None</option>
+                        <option th:each="team : ${teamsList}" th:value="${team.id}">[[${team.name}]]</option>
+                    </select>
+                </div>
 
-            <button th:if="${create}" type="submit">Create</button>
-            <button th:unless="${create}" type="submit">Update</button>
-        </form>
+                <button type="submit" class="btn-crud">[[${create} ?
+                    'Create' : 'Update']]</button>
+            </form>
+        </div>
     </main>
 </body>
 
