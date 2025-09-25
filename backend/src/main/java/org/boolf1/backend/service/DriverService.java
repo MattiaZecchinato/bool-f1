@@ -25,10 +25,8 @@ public class DriverService {
         return driverRepository.findById(id).get();
     }
 
-    public Driver setDriver(DriverForm driverForm) {
+    public Driver mapFormToDriver(DriverForm driverForm, Driver driver) {
         Team team = teamService.getById(driverForm.getTeamId());
-
-        Driver driver = new Driver();
 
         driver.setFirstName(driverForm.getFirstName());
         driver.setLastName(driverForm.getLastName());
@@ -39,10 +37,6 @@ public class DriverService {
         driver.setTeam(team);
 
         return driver;
-    }
-
-    public Driver store(Driver driver) {
-        return driverRepository.save(driver);
     }
 
     public DriverForm setDriverForm(Driver driver) {
@@ -60,8 +54,20 @@ public class DriverService {
         return driverForm;
     }
 
-    public Driver update(Driver driver) {
-        return driverRepository.save(driver);
+    public Driver store(DriverForm formDriver) {
+        // set Driver to DTO DriverForm
+        Driver newDriver = mapFormToDriver(formDriver, new Driver());
+
+        return driverRepository.save(newDriver);
+    }
+
+    public Driver update(DriverForm formDriver) {
+        Driver updatingDriver = getById(formDriver.getId());
+
+        // set Driver to DTO DriverForm
+        mapFormToDriver(formDriver, updatingDriver);
+
+        return driverRepository.save(updatingDriver);
     }
 
     public void deleteById(Integer driverId) {
