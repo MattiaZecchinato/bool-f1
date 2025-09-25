@@ -1,0 +1,36 @@
+<th:block th:fragment="list(list, isDrivers)">
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th scope="col" th:if="${isDrivers}">First Name</th>
+                <th scope="col" th:if="${isDrivers}">Last Name</th>
+                <th scope="col" th:unless="${isDrivers}">Name</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="elem : ${list}" th:object="${elem}">
+                <td th:if="${isDrivers}">[[*{firstName}]]</td>
+                <td th:if="${isDrivers}">[[*{lastName}]]</td>
+                <td th:unless="${isDrivers}">[[*{name}]]</td>
+                <td>
+                    <a th:href="${isDrivers} ? @{/drivers/{id}(id=*{id})} : @{/teams/{id}(id=*{id})}"
+                        class="btn-crud">Statistic</a>
+                </td>
+                <td>
+                    <a th:href="${isDrivers} ? @{/drivers/edit/{id}(id=*{id})} : @{/teams/edit/{id}(id=*{id})}"
+                        class="btn-crud">Edit</a>
+                </td>
+                <td>
+                    <button type="submit" class="btn-crud btn-danger-crud" data-bs-toggle="modal"
+                        th:data-bs-target="|#deleteModal*{id}|">Delete</button>
+                </td>
+
+                <!-- delete modal -->
+                <th:block th:replace="~{fragments/deleteModal :: deleteModal(${isDrivers}, *{id})}"></th:block>
+            </tr>
+        </tbody>
+    </table>
+</th:block>
