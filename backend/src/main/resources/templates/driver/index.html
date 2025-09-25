@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drivers</title>
     <th:block th:replace="~{fragments/bootstrap :: bootstrap}"></th:block>
+    <th:block th:replace="~{fragments/styles :: styles}"></th:block>
+    <link href="/css/fragments/list.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -14,21 +16,16 @@
         <h1>Drivers</h1>
     </header>
     <main>
-        <div>
-            <a th:href="@{/drivers/create}">Add New Driver</a>
+        <div class="box">
+            <a th:href="@{/drivers/create}" class="btn-crud">Add New Driver</a>
         </div>
 
-        <ul th:if="${driversList.size() > 0}">
-            <li th:each="driver : ${driversList}" th:object="${driver}">
-                <p>[[*{firstName}]]</p>
-                <div>
-                    <a th:href="@{/drivers/{id}(id=*{id})}">Statistic</a>
-                </div>
-            </li>
-        </ul>
+        <div th:if="${driversList.size() > 0}" class="box">
+            <th:block th:replace="~{fragments/list :: list(${driversList}, true)}" />
+        </div>
 
-        <div th:if="${driversList.size() == 0}">
-            No driver found
+        <div th:if="${driversList.size() == 0}" class="box not-found-box">
+            <p>No driver found</p>
         </div>
     </main>
 </body>
