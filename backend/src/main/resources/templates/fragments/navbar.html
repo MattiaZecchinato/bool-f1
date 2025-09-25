@@ -1,20 +1,16 @@
-<nav th:fragment="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">
-            <img src="..." alt="boolF1" width="30" height="24">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/drivers}">Drivers</a>
-                </li>
-                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" th:href="@{/teams}">Teams</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">LogOut</a>
-                </li>
-            </ul>
+<nav th:fragment="navbar" class="navbar">
+    <div class="link-box">
+        <div class="nav-img-box">
+            <a th:href="@{/}" class="logo">
+                <img src="..." alt="boolF1" width="30" height="24">
+            </a>
         </div>
+        <div class="nav-list-box">
+            <a th:href="@{/drivers}">Drivers</a>
+            <a th:href="@{/teams}">Teams</a>
+        </div>
+    </div>
+    <div class="account-box">
+        <a href="/logout">LogOut</a>
     </div>
 </nav>
