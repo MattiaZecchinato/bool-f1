@@ -1,5 +1,6 @@
 package org.boolf1.backend.security;
 
+import org.boolf1.backend.service.DataBaseUsersDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,5 +29,10 @@ public class SecurityConfigurantion {
     @Bean
     PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+    @Bean
+    DataBaseUsersDetailsService usersDetailsService() {
+        return new DataBaseUsersDetailsService();
     }
 }
