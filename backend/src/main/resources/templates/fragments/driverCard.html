@@ -1,0 +1,25 @@
+<th:block th:fragment="card(driver)">
+    <div class="driver-card" th:object="${driver}"
+        th:style="|background-color: var(--${driver.team.name.toLowerCase().replace(' ', '')});|">
+        <div class="left-box">
+            <div class="info-box">
+                <p>[[*{firstName}]]</p>
+                <p>[[*{lastName}]]</p>
+            </div>
+            <div class="info-box-2">
+                <p>[[*{nationality}]]</p>
+                <p>[[*{team.name}]]</p>
+                <p>[[*{carNumber}]]</p>
+            </div>
+            <div class="btn-box">
+                <a th:href="@{/drivers/edit/{id}(id=*{id})}" class="btn-crud">Edit</a>
+                <button type="submit" class="btn-crud btn-danger-crud" data-bs-toggle="modal"
+                    th:data-bs-target="|#deleteModal*{id}|">Delete</button>
+                <th:block th:replace="~{fragments/deleteModal :: deleteModal(true, *{id})}"></th:block>
+            </div>
+        </div>
+        <div class="img-box">
+            <img th:src="@{/img/driverImg/{img}(img=*{pfpImage})}" th:alt="*{firstName} + ' ' + *{lastName}">
+        </div>
+    </div>
+</th:block>
