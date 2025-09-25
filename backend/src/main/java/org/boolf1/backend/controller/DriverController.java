@@ -64,10 +64,7 @@ public class DriverController {
             return "driver/createOrEdit";
         }
 
-        // set Driver to DTO DriverForm
-        Driver driver = driverService.setDriver(formDriver);
-
-        driverService.store(driver);
+        driverService.store(formDriver);
 
         return "redirect:/drivers";
     }
@@ -95,10 +92,9 @@ public class DriverController {
             return "driver/createOrEdit";
         }
 
-        // set Driver to DTO DriverForm
-        Driver driver = driverService.setDriver(formDriver);
+        formDriver.setId(driverId);
 
-        driverService.update(driver);
+        driverService.update(formDriver);
 
         return "redirect:/drivers/" + driverId;
     }
