@@ -84,7 +84,7 @@ public class TeamController {
 
         teamService.update(formTeam);
 
-        return "redirect:/drivers/" + teamId;
+        return "redirect:/teams/" + teamId;
     }
 
     @PostMapping("/delete/{id}")
