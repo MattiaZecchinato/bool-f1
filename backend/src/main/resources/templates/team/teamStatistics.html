@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[${teamStats.name}]]</title>
+    <th:block th:replace="~{fragments/bootstrap :: bootstrap}"></th:block>
+    <th:block th:replace="~{fragments/styles :: styles}"></th:block>
+    <link href="/css/team/teamCard.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+    </header>
+
+    <main>
+        <div th:insert="~{fragments/teamCard :: card(${teamStats})}" class="driver-box"></div>
+    </main>
+</body>
+
+</html>
