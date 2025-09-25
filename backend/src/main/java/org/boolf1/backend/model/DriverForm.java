@@ -2,11 +2,14 @@ package org.boolf1.backend.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class DriverForm {
     private Integer id;
     private String firstName;
     private String lastName;
     private Integer carNumber;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateBirth;
     private String pfpImage;
     private String nationality;

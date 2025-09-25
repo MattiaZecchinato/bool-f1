@@ -2,6 +2,8 @@ package org.boolf1.backend.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,6 +36,7 @@ public class Driver {
 
     @NotNull(message = "Date of birth must be not null")
     @Column(name = "date_birth")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateBirth;
 
     @Column(name = "pfp_image")
