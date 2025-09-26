@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('/css/colorPalette.css');
+
+:root {
+    --padding-x: 3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/* box */
+.box {
+    margin: 2rem 0;
+}
+
+/* buttons */
+.btn-crud {
+    padding: .5rem .75rem;
+    background-color: #2b6dd5;
+    color: #ffffff;
+    font-size: 1rem;
+    border-radius: .3rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-crud:visited {
+    color: #ffffff;
+}
+
+.btn-danger-crud {
+    background-color: var(--danger);
+}
+
+/* heading */
+h1 {
+    text-align: center;
+    padding: 1rem;
+    font-size: 3rem;
+}
+
+/* not found box */
+.not-found-box {
+    background-color: var(--danger);
+    border-radius: .25rem;
+    width: 300px;
+    padding: 2rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+}
+
+.not-found-box p {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* create or edit */
+.form-box {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-box form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    max-width: 500px;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+.form-label {
+    margin-bottom: .5rem;
+}
