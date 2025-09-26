@@ -13,6 +13,10 @@ public class DriverForm {
     private LocalDate dateBirth;
     private String pfpImage;
     private String nationality;
+    private Integer poles;
+    private Integer wdc;
+    private Integer podiums;
+    private Integer wins;
     private Integer teamId;
 
     public Integer getId() {
@@ -79,4 +83,35 @@ public class DriverForm {
         this.teamId = teamId;
     }
 
+    public Integer getPoles() {
+        return poles;
+    }
+
+    public void setPoles(Integer poles) {
+        this.poles = poles;
+    }
+
+    public Integer getWdc() {
+        return wdc;
+    }
+
+    public void setWdc(Integer wdc) {
+        this.wdc = wdc;
+    }
+
+    public Integer getPodiums() {
+        return podiums;
+    }
+
+    public void setPodiums(Integer podiums) {
+        this.podiums = podiums;
+    }
+
+    public Integer getWins() {
+        return wins;
+    }
+
+    public void setWins(Integer wins) {
+        this.wins = wins;
+    }
 }
