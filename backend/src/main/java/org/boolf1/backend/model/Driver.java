@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -44,6 +45,24 @@ public class Driver {
 
     @NotBlank(message = "Nationality must be not blank or empty")
     private String nationality;
+
+    @NotNull(message = "Poles positions must be at least 0")
+    @Min(value = 0, message = "The pole positions cannot be negative")
+    @Column(name = "pole_positions")
+    private Integer poles;
+
+    @NotNull(message = "World Championships must be at least 0")
+    @Min(value = 0, message = "The World Championships cannot be negative")
+    @Column(name = "world_championships")
+    private Integer wdc;
+
+    @NotNull(message = "Podiums must be at least 0")
+    @Min(value = 0, message = "The podiums cannot be negative")
+    private Integer podiums;
+
+    @NotNull(message = "Wins must be at least 0")
+    @Min(value = 0, message = "The wins cannot be negative")
+    private Integer wins;
 
     @ManyToOne
     @JoinColumn(name = "team_id")
@@ -111,5 +130,37 @@ public class Driver {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public Integer getPoles() {
+        return poles;
+    }
+
+    public void setPoles(Integer poles) {
+        this.poles = poles;
+    }
+
+    public Integer getWdc() {
+        return wdc;
+    }
+
+    public void setWdc(Integer wdc) {
+        this.wdc = wdc;
+    }
+
+    public Integer getPodiums() {
+        return podiums;
+    }
+
+    public void setPodiums(Integer podiums) {
+        this.podiums = podiums;
+    }
+
+    public Integer getWins() {
+        return wins;
+    }
+
+    public void setWins(Integer wins) {
+        this.wins = wins;
     }
 }
