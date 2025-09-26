@@ -1,0 +1,26 @@
+.table-list {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgb(188, 187, 187);
+    color: #000000;
+}
+
+.table-list th {
+    color: #ffffff;
+}
+
+.table-list th,
+.table-list td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.table-list th {
+    background-color: #2e2e2e;
+    font-weight: bold;
+}
+
+.table-list tr:nth-child(even) {
+    background-color: #868686;
+}
