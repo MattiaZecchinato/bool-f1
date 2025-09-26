@@ -11,8 +11,14 @@
         </div>
     </div>
     <div class="account-box">
-        <!-- <span sec:authentication="name"></span>
-        <span sec:authentication="principal.authorities"></span> -->
-        <a href="/logout">LogOut</a>
+        <th:block sec:authorize="isAuthenticated()">
+            <span sec:authentication="name"></span>
+            <span sec:authentication="authorities"></span>
+        </th:block>
+
+        <span sec:authorize="isAnonymous()">Guest</span>
+
+        <a sec:authorize="isAnonymous()" href="/login">Login</a>
+        <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>
     </div>
 </nav>
