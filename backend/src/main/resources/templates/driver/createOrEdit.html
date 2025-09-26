@@ -72,6 +72,42 @@
                     </div>
                 </div>
                 <div class="input-box">
+                    <label for="podiums" class="form-label">Podiums</label>
+                    <input type="number" id="podiums" th:field="*{podiums}">
+                    <div th:if="${#fields.hasErrors('podiums')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('podiums')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="wins" class="form-label">Wins</label>
+                    <input type="number" id="wins" th:field="*{wins}">
+                    <div th:if="${#fields.hasErrors('wins')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('wins')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="polePositions" class="form-label">Pole Positions</label>
+                    <input type="number" id="polePositions" th:field="*{poles}">
+                    <div th:if="${#fields.hasErrors('poles')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('poles')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="wdc" class="form-label">World Championships</label>
+                    <input type="number" id="wdc" th:field="*{wdc}">
+                    <div th:if="${#fields.hasErrors('wdc')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('wdc')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-box">
                     <label for="team" class="form-label">Team</label>
                     <select id="team" th:field="*{teamId}" class="form-select">
                         <option selected value="">None</option>
