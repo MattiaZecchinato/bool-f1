@@ -1,0 +1,10 @@
+<th:block th:fragment="driverStats(driverStats)">
+    <h2>STATISTICS</h2>
+    <div class="info-stats-box" th:object="${driverStats}">
+        <h3>CAREER STATS</h3>
+        <p>Podiums: [[*{podiums}]]</p>
+        <p>Wins: [[*{wins}]]</p>
+        <p>Pole: Positions [[*{poles}]]</p>
+        <p>World Championships: [[*{wdc}]]</p>
+    </div>
+</th:block>
