@@ -33,7 +33,10 @@ public class DriverService {
         driver.setCarNumber(driverForm.getCarNumber());
         driver.setDateBirth(driverForm.getDateBirth());
         driver.setPfpImage(driverForm.getPfpImage());
-        driver.setNationality(driverForm.getNationality());
+        driver.setPoles(driverForm.getPoles());
+        driver.setWdc(driverForm.getWdc());
+        driver.setPodiums(driverForm.getPodiums());
+        driver.setWins(driverForm.getWins());
         driver.setTeam(team);
 
         return driver;
@@ -49,6 +52,10 @@ public class DriverService {
         driverForm.setDateBirth(driver.getDateBirth());
         driverForm.setPfpImage(driver.getPfpImage());
         driverForm.setNationality(driver.getNationality());
+        driverForm.setPoles(driver.getPoles());
+        driverForm.setWdc(driver.getWdc());
+        driverForm.setPodiums(driver.getPodiums());
+        driverForm.setWins(driver.getWins());
         driverForm.setTeamId(driver.getTeam().getId());
 
         return driverForm;
