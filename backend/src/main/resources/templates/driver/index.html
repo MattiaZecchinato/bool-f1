@@ -16,7 +16,7 @@
         <h1>Drivers</h1>
     </header>
     <main>
-        <div class="box">
+        <div class="box" sec:authorize="hasAuthority('ADMIN')">
             <a th:href="@{/drivers/create}" class="btn-crud">Add New Driver</a>
         </div>
 

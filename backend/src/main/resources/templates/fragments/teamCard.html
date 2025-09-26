@@ -17,7 +17,7 @@
             <div class="logo-img-box">
                 <img th:src="@{/img/teamImg/logoImg/{img}(img=*{logoImg})}" th:alt="*{name}">
             </div>
-            <div class="btn-box">
+            <div class="btn-box" sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/teams/edit/{id}(id=*{id})}" class="btn-crud">Edit</a>
                 <button type="submit" class="btn-crud btn-danger-crud" data-bs-toggle="modal"
                     th:data-bs-target="|#deleteModal*{id}|">Delete</button>

@@ -11,7 +11,7 @@
                 <p>[[*{team.name}]]</p>
                 <p>[[*{carNumber}]]</p>
             </div>
-            <div class="btn-box">
+            <div class="btn-box" sec:authorize="hasAuthority('ADMIN')">
                 <a th:href="@{/drivers/edit/{id}(id=*{id})}" class="btn-crud">Edit</a>
                 <button type="submit" class="btn-crud btn-danger-crud" data-bs-toggle="modal"
                     th:data-bs-target="|#deleteModal*{id}|">Delete</button>

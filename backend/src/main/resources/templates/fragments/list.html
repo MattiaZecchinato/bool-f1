@@ -20,12 +20,13 @@
                         class="btn-crud">Statistic</a>
                 </td>
                 <td>
-                    <a th:href="${isDrivers} ? @{/drivers/edit/{id}(id=*{id})} : @{/teams/edit/{id}(id=*{id})}"
+                    <a sec:authorize="hasAuthority('ADMIN')"
+                        th:href="${isDrivers} ? @{/drivers/edit/{id}(id=*{id})} : @{/teams/edit/{id}(id=*{id})}"
                         class="btn-crud">Edit</a>
                 </td>
                 <td>
-                    <button type="submit" class="btn-crud btn-danger-crud" data-bs-toggle="modal"
-                        th:data-bs-target="|#deleteModal*{id}|">Delete</button>
+                    <button sec:authorize="hasAuthority('ADMIN')" type="submit" class="btn-crud btn-danger-crud"
+                        data-bs-toggle="modal" th:data-bs-target="|#deleteModal*{id}|">Delete</button>
                 </td>
 
                 <!-- delete modal -->
