@@ -1,0 +1,26 @@
+@import url('/css/colorPalette.css');
+
+.stats-box {
+    position: relative;
+    z-index: 2;
+    background-color: var(--background);
+    margin: 2rem;
+    margin-top: 0;
+    padding: 2rem;
+    color: #fff;
+}
+
+.info-stats-box {
+    padding: 1rem;
+    background-color: #323131;
+    border-radius: .5rem;
+}
+
+.info-stats-box h3 {
+    margin-bottom: 2rem;
+}
+
+.info-stats-box p {
+    border-bottom: 1px solid #828080;
+    padding-bottom: 1rem;
+}
