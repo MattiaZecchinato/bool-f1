@@ -1,0 +1,27 @@
+:root {
+    /* team color */
+    --mclaren: #ea7000;
+    --ferrari: #e00f2d;
+    --redbullracing: #174c9e;
+    --mercedes: #00c9aa;
+    --astonmartin: #1e916a;
+    --alpine: #0097dc;
+    --haas: #969a9d;
+    --williams: #000681;
+    --racingbulls: #5f89f0;
+    --kicksauber: #01af0c;
+
+    /* backround color */
+    --background: #23232d;
+
+    /* navbar color */
+    --navbar: #191922;
+
+    /* btn color */
+    --danger: #c40101;
+}
+
+body {
+    background-color: var(--background);
+    color: #fff;
+}
