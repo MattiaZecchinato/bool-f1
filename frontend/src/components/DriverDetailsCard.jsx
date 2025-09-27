@@ -1,13 +1,15 @@
+import '../styles/components/DriverDetailsCard.css'
+
 function DriverDetailsCard({ data }) {
 
     const { firstName, lastName, nationality, carNumber, team, pfpImage } = data
 
     return (
-        <div className="driver-card">
+        <div className="driver-card" style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
             <div className="left-box">
                 <div className="info-box">
-                    <p>{firstName}</p>
-                    <p>{lastName}</p>
+                    <p className="first-name">{firstName}</p>
+                    <p className="last-name text-uppercase">{lastName}</p>
                 </div>
                 <div className="info-box-2">
                     <p>{nationality}</p>
