@@ -5,9 +5,6 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,8 +39,10 @@ public class Team {
     @Column(name = "car_img")
     private String carImg;
 
+    @Column(name = "color_name")
+    private String colorName;
+
     @OneToMany(mappedBy = "team")
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Driver> drivers;
 
     public Integer getId() {
@@ -92,6 +91,14 @@ public class Team {
 
     public void setCarImg(String carImg) {
         this.carImg = carImg;
+    }
+
+    public String getColorName() {
+        return colorName;
+    }
+
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
     }
 
     public List<Driver> getDrivers() {
