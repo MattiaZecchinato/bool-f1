@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
+// components
+import DriverCard from "../components/DriverCard"
 
 // style
 import '../styles/pages/DriversPage.css'
@@ -16,7 +20,13 @@ function DriversPage() {
     useEffect(() => {
         getDrivers()
             .then(res => {
-                setDrivers(res.data)
+                const drivers = res.data.sort((a, b) => {
+                    if (!a.team || !b.team) {
+                        return 0
+                    }
+                    return a.team.id - b.team.id;
+                })
+                setDrivers(drivers)
             })
             .catch(err => {
                 console.log(err)
@@ -26,12 +36,14 @@ function DriversPage() {
 
     return (
         <>
-            <h1>Drivers</h1>
-            {drivers.length > 0 ? drivers.map(driver => (
-                <div key={driver.id}>
-                    <p>{driver.firstName} {driver.lastName}</p>
-                </div>
-            )) : (<p>No drivers found!</p>)}
+            <h1>F1 Drivers 2025</h1>
+            <div className="drivers-container">
+                {drivers.length > 0 ? drivers.map(driver => (
+                    <Link to={`/drivers/${driver.id}`}>
+                        <DriverCard key={driver.id} data={driver} />
+                    </Link>
+                )) : (<p>No drivers found!</p>)}
+            </div>
         </>
     )
 }
