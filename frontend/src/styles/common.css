@@ -1,11 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 @import url('./colorPalette.css');
 
+/* font-family: 'Formula1', sans-serif; */
 @font-face {
     font-family: 'Formula1';
-    src: local('Formula1'),
-        url('../assets/fonts/Formula1-Regular.woff2') format('woff2');
+    src: url('../assets/fonts/Formula1-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* font-family: 'Formula1-black', sans-serif; */
+@font-face {
+    font-family: 'Formula1-black';
+    src: url('../assets/fonts/formula1-black-webfont.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* font-family: 'Northwell-alt', sans-serif; */
+@font-face {
+    font-family: 'Northwell-alt';
+    src: url('../assets/fonts/northwell-alt-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,5 +44,6 @@ body {
 h1 {
     text-align: center;
     padding: 1rem;
+    font-family: 'Formula1-black', sans-serif;
     font-size: 3rem;
 }
