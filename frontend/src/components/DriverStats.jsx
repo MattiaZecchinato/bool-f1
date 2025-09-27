@@ -1,3 +1,5 @@
+import '../styles/components/DriverStats.css'
+
 function DriverStats({ data }) {
 
     const { podiums, wins, poles, wdc } = data
@@ -7,10 +9,10 @@ function DriverStats({ data }) {
             <h2>STATISTICS</h2>
             <div className="info-stats-box">
                 <h3>CAREER STATS</h3>
-                <p>Podium: {podiums}</p>
-                <p>Wins: {wins}</p>
-                <p>Poles: {poles}</p>
-                <p>Wdc: {wdc}</p>
+                <p>Podiums <span>{podiums}</span></p>
+                <p>Wins <span>{wins}</span></p>
+                <p>Poles <span>{poles}</span></p>
+                <p>World Championships <span>{wdc}</span></p>
             </div>
         </>
     )
