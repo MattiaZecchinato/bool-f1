@@ -1,3 +1,4 @@
+// style
 import style from '../styles/components/DriverStats.module.css'
 
 function DriverStats({ data }) {

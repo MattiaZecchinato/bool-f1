@@ -1,5 +1,5 @@
-//style
-import style from "../styles/components/TeamDetailsCard.module.css"
+// style
+import style from '../styles/components/TeamDetailsCard.module.css'
 
 function TeamDetailsCard({ data }) {
 
