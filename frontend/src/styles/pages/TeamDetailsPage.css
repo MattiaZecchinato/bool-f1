@@ -24,3 +24,10 @@
     text-decoration: none;
     color: inherit;
 }
+
+@media screen and (max-width: 768px) {
+    .lower-box .drivers-box {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
