@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
+// contexts
+import LoaderContext from '../contexts/LoaderContext'
 
 // components
 import DriverDetailsCard from '../components/DriverDetailsCard'
 import DriverStats from '../components/DriverStats'
+import Loader from '../components/Loader'
 
 // style
 import '../styles/pages/DriverDetailsPage.css'
@@ -17,9 +21,12 @@ function DriverDetailsPage() {
 
     const { getDriverById } = apiDrivers
 
+    const { isLoading, setIsLoading } = useContext(LoaderContext)
+
     const [driver, setDriver] = useState({})
 
     useEffect(() => {
+        setIsLoading(true)
         getDriverById(id)
             .then(res => {
                 console.log(res.data)
@@ -29,18 +36,21 @@ function DriverDetailsPage() {
                 console.log(err)
                 setDriver({})
             })
+            .finally(() => setIsLoading(false))
     }, [id])
 
     return (
         <>
-            {driver ? <>
-                <div className="driver-box">
-                    <DriverDetailsCard data={driver} />
-                </div>
-                <>
-                    <DriverStats data={driver} />
-                </>
-            </> : (<p>Driver not found!</p>)}
+            {isLoading ? (<Loader />)
+                : driver ? (<>
+                    <div className="driver-box">
+                        <DriverDetailsCard data={driver} />
+                    </div>
+                    <>
+                        <DriverStats data={driver} />
+                    </>
+                </>) : (<p>Driver not found!</p>)
+            }
         </>
     )
 }

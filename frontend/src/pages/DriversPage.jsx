@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
+// contexts
+import LoaderContext from '../contexts/LoaderContext'
 
 // components
 import DriverCard from '../components/DriverCard'
+import Loader from '../components/Loader'
 
 // style
 import '../styles/pages/DriversPage.css'
@@ -17,7 +21,10 @@ function DriversPage() {
 
     const [drivers, setDrivers] = useState([])
 
+    const { isLoading, setIsLoading } = useContext(LoaderContext)
+
     useEffect(() => {
+        setIsLoading(true)
         getDrivers()
             .then(res => {
                 const drivers = res.data.sort((a, b) => {
@@ -32,18 +39,23 @@ function DriversPage() {
                 console.log(err)
                 setDrivers([])
             })
+            .finally(() => setIsLoading(false))
     }, [])
 
     return (
         <>
-            <h1>F1 Drivers 2025</h1>
-            <div className="drivers-container">
-                {drivers.length > 0 ? drivers.map(driver => (
-                    <Link to={`/drivers/${driver.id}`} key={driver.id}>
-                        <DriverCard isDriver={true} data={driver} />
-                    </Link>
-                )) : (<p>No drivers found!</p>)}
-            </div>
+            {isLoading ? (<Loader />)
+                : (<>
+                    <h1>F1 Drivers 2025</h1>
+                    <div className="drivers-container">
+                        {drivers.length > 0 ? drivers.map(driver => (
+                            <Link to={`/drivers/${driver.id}`} key={driver.id}>
+                                <DriverCard isDriver={true} data={driver} />
+                            </Link>
+                        )) : (<p>No drivers found!</p>)}
+                    </div>
+                </>)
+            }
         </>
     )
 }
