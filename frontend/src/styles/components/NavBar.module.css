@@ -66,7 +66,11 @@
     border-bottom: 1px solid #828080;
 }
 
-@media (max-width: 550px) {
+.dropdownMenu a:hover {
+    border-bottom: 1px solid var(--f1-color);
+}
+
+@media screen and (max-width: 550px) {
     .navListBox {
         display: none;
     }
