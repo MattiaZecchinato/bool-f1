@@ -10,7 +10,7 @@ function NavBar() {
             <div className={style.linkBox}>
                 <div className={style.navImgBox}>
                     <NavLink to="/" className={style.logo}>
-                        <img src="..." alt="BoolF1" width="30" height="24" />
+                        <img src="/img/logo-bool-f1.png" alt="BoolF1" width="250" height="24" />
                     </NavLink>
                 </div>
                 <div className={style.navListBox}>
