@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <th:block th:replace="~{fragments/bootstrap :: bootstrap}"></th:block>
+    <th:block th:replace="~{fragments/styles :: styles}"></th:block>
+    <link href="/css/home.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+    </header>
+
+    <h1>Welcome to BoolF1</h1>
+
+    <div class="text-box">
+        <h2>Explore our</h2>
+        <div class="btn-box">
+            <a th:href="@{/drivers}" class="btn-crud">Drivers</a>
+            <a th:href="@{/teams}" class="btn-crud">Teams</a>
+        </div>
+    </div>
+</body>
+
+</html>
