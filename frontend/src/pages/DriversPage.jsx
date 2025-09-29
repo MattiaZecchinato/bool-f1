@@ -39,8 +39,8 @@ function DriversPage() {
             <h1>F1 Drivers 2025</h1>
             <div className="drivers-container">
                 {drivers.length > 0 ? drivers.map(driver => (
-                    <Link to={`/drivers/${driver.id}`}>
-                        <DriverCard key={driver.id} data={driver} />
+                    <Link to={`/drivers/${driver.id}`} key={driver.id}>
+                        <DriverCard data={driver} />
                     </Link>
                 )) : (<p>No drivers found!</p>)}
             </div>
