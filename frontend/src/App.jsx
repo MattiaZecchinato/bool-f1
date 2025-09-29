@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage"
 import DriverDetailsPage from "./pages/DriverDetailsPage"
 import TeamsPage from "./pages/TeamsPage"
 import TeamDetailsPage from "./pages/TeamDetailsPage"
+import HomePage from "./pages/HomePage"
 
 // layouts
 import MainLayout from "./layouts/MainLayout"
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<MainLayout />}>
-            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/drivers" element={<DriversPage />} />
             <Route path="/drivers/:id" element={<DriverDetailsPage />} />
             <Route path="/teams" element={<TeamsPage />} />
