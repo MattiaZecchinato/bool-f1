@@ -40,7 +40,7 @@ function DriversPage() {
             <div className="drivers-container">
                 {drivers.length > 0 ? drivers.map(driver => (
                     <Link to={`/drivers/${driver.id}`} key={driver.id}>
-                        <DriverCard data={driver} />
+                        <DriverCard isDriver={true} data={driver} />
                     </Link>
                 )) : (<p>No drivers found!</p>)}
             </div>
