@@ -1,23 +1,24 @@
-import '../styles/components/DriverCard.css'
+// style
+import style from '../styles/components/DriverCard.module.css'
 
 function DriverCard({ data }) {
 
     const { firstName, lastName, team, carNumber, pfpImage, nationality } = data
 
     return (
-        <div className="driver-card" style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
-            <div className='left-box'>
-                <div className="info-box">
-                    <p className='name'>{firstName}</p>
-                    <p className='last-name fw-bold'>{lastName}</p>
-                    <p className='team'>{team?.name}</p>
-                    <p className='car-number'>{carNumber}</p>
+        <div className={style.driverCard} style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
+            <div className={style.leftBox}>
+                <div className={style.infoBox}>
+                    <p className={style.name}>{firstName}</p>
+                    <p className={style.lastName}>{lastName}</p>
+                    <p className={style.team}>{team?.name}</p>
+                    <p className={style.carNumber}>{carNumber}</p>
                 </div>
-                <div className='nationality-box'>
+                <div className={style.nationalityBox}>
                     <p>{nationality}</p>
                 </div>
             </div>
-            <div className="img-box">
+            <div className={style.imgBox}>
                 <img src={`/img/driverImg/${pfpImage}`} alt={`${firstName} ${lastName}`} />
             </div>
         </div>

@@ -1,10 +1,4 @@
-.drivers-container a {
-    display: contents;
-    text-decoration: none;
-    color: inherit;
-}
-
-.drivers-container .driver-card {
+.driverCard {
     border-radius: .5rem;
     padding: 1rem 0 0 1rem;
     width: calc((100% - 6rem) / 4);
@@ -12,12 +6,16 @@
     justify-content: space-between;
 }
 
-.drivers-container .img-box {
+.driverCard p {
+    margin-bottom: 0;
+}
+
+.imgBox {
     width: 265px;
     height: 265px;
 }
 
-.drivers-container .img-box img {
+.imgBox img {
     width: 100%;
     height: 100%;
     display: block;
@@ -25,41 +23,38 @@
     object-position: top;
 }
 
-.drivers-container p {
-    margin-bottom: 0;
-}
-
-.drivers-container .left-box {
+.leftBox {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.drivers-container .nationality-box {
+.nationalityBox {
     margin-bottom: 1rem;
 }
 
-.drivers-container .name,
-.drivers-container .last-name {
+.infoBox .name,
+.infoBox .lastName {
     font-size: 1.25rem;
 }
 
-.drivers-container .last-name {
+.infoBox .lastName {
+    font-weight: bold;
     margin-top: -.25rem;
 }
 
-.drivers-container .team {
+.infoBox .team {
     font-size: .7rem;
 }
 
-.drivers-container .car-number {
+.infoBox .carNumber {
     margin-top: 1rem;
     font-size: 1.75rem;
 }
 
 /* xl size */
 @media screen and (max-width: 1200px) {
-    .drivers-container .driver-card {
+    .driverCard {
         width: calc((100% - 4rem) / 2);
     }
 }
@@ -69,7 +64,7 @@
 
 /* sm size */
 @media screen and (max-width: 576px) {
-    .drivers-container .driver-card {
+    .driverCard {
         width: 100%;
     }
 }
