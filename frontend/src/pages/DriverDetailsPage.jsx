@@ -37,9 +37,9 @@ function DriverDetailsPage() {
                 <div className="driver-box">
                     <DriverDetailsCard data={driver} />
                 </div>
-                <div className="stats-box">
+                <>
                     <DriverStats data={driver} />
-                </div>
+                </>
             </> : (<p>Driver not found!</p>)}
         </>
     )
