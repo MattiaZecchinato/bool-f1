@@ -1,0 +1,37 @@
+.teamCard {
+    border-radius: .5rem;
+    padding: 5rem 1rem;
+}
+
+.carImgBox {
+    display: flex;
+    justify-content: center;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoBox h3 {
+    font-size: 3rem;
+    font-family: 'Formula1-black', sans-serif;
+    text-transform: uppercase;
+}
+
+.infoBox2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.driversBox {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.logoImgBox {
+    display: flex;
+    justify-content: center;
+}
