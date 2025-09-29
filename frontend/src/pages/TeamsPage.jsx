@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 // components
 import TeamCard from "../components/TeamCard"
@@ -8,7 +9,6 @@ import "../styles/pages/TeamsPage.css"
 
 // api
 import apiTeams from "../services/apiTeams"
-import { Link } from "react-router-dom"
 
 function TeamsPage() {
 
