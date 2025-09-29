@@ -1,17 +1,17 @@
 // style
 import style from '../styles/components/DriverCard.module.css'
 
-function DriverCard({ data }) {
+function DriverCard({ isDriver, data }) {
 
     const { firstName, lastName, team, carNumber, pfpImage, nationality } = data
 
     return (
-        <div className={style.driverCard} style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
+        <div className={`${style.driverCard} ${isDriver ? style.driverPage : style.teamPage}`} style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
             <div className={style.leftBox}>
                 <div className={style.infoBox}>
                     <p className={style.name}>{firstName}</p>
                     <p className={style.lastName}>{lastName}</p>
-                    <p className={style.team}>{team?.name}</p>
+                    <p className={style.teamName}>{team?.name}</p>
                     <p className={style.carNumber}>{carNumber}</p>
                 </div>
                 <div className={style.nationalityBox}>
