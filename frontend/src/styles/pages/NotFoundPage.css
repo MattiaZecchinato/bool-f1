@@ -1,0 +1,10 @@
+.not-found-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.not-found-box p {
+    font-size: 2rem;
+}
