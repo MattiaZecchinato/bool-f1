@@ -1,0 +1,45 @@
+:root {
+    --column-gap: 2rem;
+}
+
+.navbar {
+    background-color: var(--navbar);
+    padding: 1rem var(--padding-x);
+}
+
+.linkBox {
+    display: flex;
+    align-items: center;
+    column-gap: var(--column-gap);
+}
+
+.navImgBox .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.navListBox {
+    display: flex;
+    column-gap: var(--column-gap);
+    height: 100%;
+}
+
+.navListBox a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 0.5rem;
+    position: relative;
+}
+
+.navListBox a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    transform: translateY(calc(1rem + 0.4em));
+}

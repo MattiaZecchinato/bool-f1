@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom"
 
-import "../styles/components/NavBar.css"
+import style from "../styles/components/NavBar.module.css"
 
 function NavBar() {
 
     return (
-        <nav className="navbar">
-            <div className="link-box">
-                <div className="nav-img-box">
-                    <NavLink to="/" className="logo">
+        <nav className={style.navbar}>
+            <div className={style.linkBox}>
+                <div className={style.navImgBox}>
+                    <NavLink to="/" className={style.logo}>
                         <img src="..." alt="BoolF1" width="30" height="24" />
                     </NavLink>
                 </div>
-                <div className="nav-list-box">
+                <div className={style.navListBox}>
                     <NavLink to="/drivers">Drivers</NavLink>
                     <NavLink to="/teams">Teams</NavLink>
                 </div>
