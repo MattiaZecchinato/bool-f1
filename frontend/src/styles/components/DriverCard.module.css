@@ -59,19 +59,21 @@
     font-size: 1.75rem;
 }
 
-/* xl size */
 @media screen and (max-width: 1200px) {
-    .driverCard {
+    .driverPage {
         width: calc((100% - 4rem) / 2);
     }
 }
 
-/* md size */
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .teamPage {
+        width: 100%;
+    }
 
-/* sm size */
+}
+
 @media screen and (max-width: 576px) {
-    .driverCard {
+    .driverPage {
         width: 100%;
     }
 }
