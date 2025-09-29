@@ -5,6 +5,7 @@ import DriversPage from "./pages/DriversPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import DriverDetailsPage from "./pages/DriverDetailsPage"
 import TeamsPage from "./pages/TeamsPage"
+import TeamDetailsPage from "./pages/TeamDetailsPage"
 
 // layouts
 import MainLayout from "./layouts/MainLayout"
@@ -20,7 +21,7 @@ function App() {
             <Route path="/drivers" element={<DriversPage />} />
             <Route path="/drivers/:id" element={<DriverDetailsPage />} />
             <Route path="/teams" element={<TeamsPage />} />
-            {/* <Route path="/teams/:id" element={<TeamDetailsPage />} /> */}
+            <Route path="/teams/:id" element={<TeamDetailsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
