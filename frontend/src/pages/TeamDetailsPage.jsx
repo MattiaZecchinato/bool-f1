@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 // components
 import TeamDetailsCard from '../components/TeamDetailsCard'
+import DriverCard from '../components/DriverCard'
 
 // style
 import '../styles/pages/TeamDetailsPage.css'
@@ -32,9 +33,21 @@ function TeamDetailsPage() {
 
     return (
         <>
-            {team ? <div className="team-box">
-                <TeamDetailsCard data={team} />
-            </div> : (<p>Team not found!</p>)}
+            {team ? <>
+                <div className="team-box">
+                    <TeamDetailsCard data={team} />
+                </div>
+                <div className="lower-box">
+                    <h2>Drivers</h2>
+                    <div className="drivers-box">
+                        {team.drivers?.length > 0 ? team.drivers?.map(driver => (
+                            <Link to={`/drivers/${driver.id}`} key={driver.id}>
+                                <DriverCard key={driver.id} isDriver={false} data={driver} />
+                            </Link>
+                        )) : <></>}
+                    </div>
+                </div>
+            </> : (<p>Team not found!</p>)}
         </>
     )
 }
