@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // components
-import DriverCard from "../components/DriverCard"
+import DriverCard from '../components/DriverCard'
 
 // style
 import '../styles/pages/DriversPage.css'
 
 // api
-import apiDrivers from "../services/apiDrivers"
+import apiDrivers from '../services/apiDrivers'
 
 
 function DriversPage() {

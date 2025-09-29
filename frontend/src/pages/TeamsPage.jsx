@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // components
-import TeamCard from "../components/TeamCard"
+import TeamCard from '../components/TeamCard'
 
 // style
-import "../styles/pages/TeamsPage.css"
+import '../styles/pages/TeamsPage.css'
 
 // api
-import apiTeams from "../services/apiTeams"
+import apiTeams from '../services/apiTeams'
 
 function TeamsPage() {
 

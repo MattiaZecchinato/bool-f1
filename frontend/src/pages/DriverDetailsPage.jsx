@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 // components
-import DriverDetailsCard from "../components/DriverDetailsCard"
-import DriverStats from "../components/DriverStats"
+import DriverDetailsCard from '../components/DriverDetailsCard'
+import DriverStats from '../components/DriverStats'
 
 // style
 import '../styles/pages/DriverDetailsPage.css'
 
 // api
-import apiDrivers from "../services/apiDrivers"
+import apiDrivers from '../services/apiDrivers'
 
 function DriverDetailsPage() {
 
