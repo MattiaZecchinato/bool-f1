@@ -24,3 +24,10 @@
 .btn-box a:hover {
     transform: scale(1.05);
 }
+
+@media screen and (max-width: 468px) {
+    .btn-box {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
