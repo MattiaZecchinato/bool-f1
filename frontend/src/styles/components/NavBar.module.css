@@ -5,6 +5,7 @@
 .navbar {
     background-color: var(--navbar);
     padding: 1rem var(--padding-x);
+    position: relative;
 }
 
 .linkBox {
@@ -42,4 +43,44 @@
     width: 100%;
     background-color: #fff;
     transform: translateY(calc(1rem + 0.4em));
+}
+
+.menuButton {
+    display: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--navbar);
+    border-top: 1px solid #828080;
+}
+
+.dropdownMenu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    border-bottom: 1px solid #828080;
+}
+
+@media (max-width: 550px) {
+    .navListBox {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+        margin-left: auto;
+    }
+
+    .dropdownMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
 }
