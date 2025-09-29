@@ -1,11 +1,19 @@
 .teamCard {
     border-radius: .5rem;
     padding: 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .carImgBox {
-    display: flex;
-    justify-content: center;
+    max-width: 900px;
+}
+
+.carImgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .infoBox {
