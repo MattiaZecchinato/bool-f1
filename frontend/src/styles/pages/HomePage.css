@@ -1,0 +1,26 @@
+.text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    row-gap: 2rem;
+}
+
+.btn-box {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.btn-box a {
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--f1-color);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-box a:hover {
+    transform: scale(1.05);
+}
