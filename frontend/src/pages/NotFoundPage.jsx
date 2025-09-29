@@ -1,7 +1,12 @@
+import '../styles/pages/NotFoundPage.css'
+
 function NotFoundPage() {
 
     return (
-        <>Error 404</>
+        <div className="not-found-box">
+            <p>Error 404</p>
+            <p>Page Not Found</p>
+        </div>
     )
 }
 
