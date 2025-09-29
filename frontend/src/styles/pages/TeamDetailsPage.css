@@ -2,3 +2,25 @@
     margin: 2rem;
     margin-bottom: 0;
 }
+
+.lower-box {
+    margin: 2rem;
+    margin-top: 0;
+    padding: 2rem;
+}
+
+.lower-box h2 {
+    text-transform: uppercase;
+    font-family: 'Formula1-black', sans-serif;
+}
+
+.lower-box .drivers-box {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.drivers-box a {
+    display: contents;
+    text-decoration: none;
+    color: inherit;
+}
