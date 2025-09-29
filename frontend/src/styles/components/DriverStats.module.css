@@ -1,4 +1,4 @@
-.stats-box {
+.statsBox {
     position: relative;
     z-index: 2;
     background-color: var(--background);
@@ -8,18 +8,18 @@
     color: #fff;
 }
 
-.stats-box .info-stats-box {
+.infoStatsBox {
     padding: 1rem;
     background-color: #323131;
     border-radius: .5rem;
 
 }
 
-.stats-box .info-stats-box h3 {
+.infoStatsBox h3 {
     margin-bottom: 2rem;
 }
 
-.stats-box .info-stats-box p {
+.infoStatsBox p {
     border-bottom: 1px solid #828080;
     padding-bottom: 1rem;
     display: flex;
@@ -27,13 +27,13 @@
     justify-content: space-between;
 }
 
-.stats-box .info-stats-box span {
+.infoStatsBox span {
     font-size: 1.75rem;
     font-weight: bold;
 }
 
-.stats-box h2,
-.stats-box h3,
-.stats-box span {
+.statsBox h2,
+.infoStatsBox h3,
+.infoStatsBox span {
     font-family: 'Formula1-black', sans-serif;
 }

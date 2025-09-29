@@ -1,4 +1,4 @@
-import '../styles/components/DriverStats.css'
+import style from '../styles/components/DriverStats.module.css'
 
 function DriverStats({ data }) {
 
@@ -6,13 +6,15 @@ function DriverStats({ data }) {
 
     return (
         <>
-            <h2>STATISTICS</h2>
-            <div className="info-stats-box">
-                <h3>CAREER STATS</h3>
-                <p>Podiums <span>{podiums}</span></p>
-                <p>Wins <span>{wins}</span></p>
-                <p>Poles <span>{poles}</span></p>
-                <p>World Championships <span>{wdc}</span></p>
+            <div className={style.statsBox}>
+                <h2>STATISTICS</h2>
+                <div className={style.infoStatsBox}>
+                    <h3>CAREER STATS</h3>
+                    <p>Podiums <span>{podiums}</span></p>
+                    <p>Wins <span>{wins}</span></p>
+                    <p>Poles <span>{poles}</span></p>
+                    <p>World Championships <span>{wdc}</span></p>
+                </div>
             </div>
         </>
     )
