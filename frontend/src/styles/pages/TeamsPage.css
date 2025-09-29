@@ -1,0 +1,12 @@
+.teams-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.teams-container a {
+    display: contents;
+    text-decoration: none;
+    color: inherit;
+}
