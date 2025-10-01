@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,6 +45,7 @@ public class Team {
     private String colorName;
 
     @OneToMany(mappedBy = "team")
+    @JsonIgnoreProperties({ "team" })
     private List<Driver> drivers;
 
     public Integer getId() {
