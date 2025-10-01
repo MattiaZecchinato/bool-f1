@@ -27,13 +27,7 @@ function DriversPage() {
         setIsLoading(true)
         getDrivers()
             .then(res => {
-                const drivers = res.data.sort((a, b) => {
-                    if (!a.team || !b.team) {
-                        return 0
-                    }
-                    return a.team.id - b.team.id;
-                })
-                setDrivers(drivers)
+                setDrivers(res.data)
             })
             .catch(err => {
                 console.log(err)
