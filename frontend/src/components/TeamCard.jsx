@@ -6,14 +6,7 @@ function TeamCard({ data }) {
     const { name, logoImg, carImg, drivers, colorName } = data
 
     return (
-        <div className={style.teamCard}
-            style={{
-                background: `linear-gradient(
-                to right,
-                var(--${colorName.toLowerCase().replace(' ', '')}) 0%,
-                var(--${colorName.toLowerCase().replace(' ', '')}) 60%,
-                color-mix(in srgb, var(--${colorName.toLowerCase().replace(' ', '')}) 70%, white 30%) 100%)`
-            }}>
+        <div className={style.teamCard} style={{ backgroundColor: `var(--${colorName?.toLowerCase().replace(' ', '')})` }}>
             <div className={style.topBox}>
                 <div className={style.infoBox}>
                     <h3>{name}</h3>
