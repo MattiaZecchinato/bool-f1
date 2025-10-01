@@ -31,7 +31,6 @@ function DriversPage() {
             })
             .catch(err => {
                 console.log(err)
-                setDrivers([])
             })
             .finally(() => setIsLoading(false))
     }, [])

@@ -31,7 +31,6 @@ function TeamsPage() {
             })
             .catch(err => {
                 console.log(err)
-                setTeams([])
             })
             .finally(() => setIsLoading(false))
     }, [])
