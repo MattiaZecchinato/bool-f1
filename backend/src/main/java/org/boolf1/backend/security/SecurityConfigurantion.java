@@ -21,9 +21,7 @@ public class SecurityConfigurantion {
                 .requestMatchers("/teams/create", "/teams/update/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/teams/**").hasAuthority("ADMIN")
                 .anyRequest().permitAll())
-                .formLogin(Customizer.withDefaults())
-                .cors(cors -> cors.disable())
-                .csrf(csrf -> csrf.disable());
+                .formLogin(Customizer.withDefaults());
         return http.build();
     }
 
