@@ -33,6 +33,7 @@ public class DriverService {
         driver.setCarNumber(driverForm.getCarNumber());
         driver.setDateBirth(driverForm.getDateBirth());
         driver.setPfpImage(driverForm.getPfpImage());
+        driver.setNationality(driverForm.getNationality());
         driver.setPoles(driverForm.getPoles());
         driver.setWdc(driverForm.getWdc());
         driver.setPodiums(driverForm.getPodiums());
