@@ -3,6 +3,7 @@
     padding: 5rem 1rem;
     position: relative;
     display: flex;
+    background-color: var(--base-team);
 }
 
 /* left box */
