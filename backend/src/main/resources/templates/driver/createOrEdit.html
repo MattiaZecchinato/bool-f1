@@ -113,6 +113,11 @@
                         <option selected value="">None</option>
                         <option th:each="team : ${teamsList}" th:value="${team.id}">[[${team.name}]]</option>
                     </select>
+                    <div th:if="${#fields.hasErrors('teamId')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('teamId')}">[[${err}]]</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn-crud">[[${create} ?
