@@ -29,7 +29,7 @@ public class Driver {
     @Column(name = "first_name")
     private String firstName;
 
-    @NotBlank(message = "First name must be not blank or empty")
+    @NotBlank(message = "Last name must be not blank or empty")
     @Column(name = "last_name")
     private String lastName;
 
