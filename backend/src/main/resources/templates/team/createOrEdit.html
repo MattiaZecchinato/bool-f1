@@ -62,6 +62,15 @@
                         </ul>
                     </div>
                 </div>
+                <div class="input-box">
+                    <label for="colorName" class="form-label">Color name</label>
+                    <input type="text" id="colorName" th:field="*{colorName}">
+                    <div th:if="${#fields.hasErrors('colorName')}">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('colorName')}">[[${err}]]</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <button type="submit" class="btn-crud">[[${create} ?
                     'Create' : 'Update']]</button>
