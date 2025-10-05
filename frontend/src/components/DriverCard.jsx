@@ -6,7 +6,7 @@ function DriverCard({ isDriver, data }) {
     const { firstName, lastName, team, carNumber, pfpImage, nationality } = data
 
     return (
-        <div className={`${style.driverCard} ${isDriver ? style.driverPage : style.teamPage}`} style={{ backgroundColor: `var(--${team?.colorName.toLowerCase().replace(' ', '')})` }}>
+        <div className={`${style.driverCard} ${isDriver ? style.driverPage : style.teamPage}`} style={{ backgroundColor: `var(--${team?.colorName?.toLowerCase().replace(' ', '')})` }}>
             <div className={style.leftBox}>
                 <div className={style.infoBox}>
                     <p className={style.name}>{firstName}</p>
