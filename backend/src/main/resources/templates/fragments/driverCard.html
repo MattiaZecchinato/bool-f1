@@ -1,6 +1,6 @@
 <th:block th:fragment="card(driver)">
     <div class="driver-card" th:object="${driver}"
-        th:style="|background-color: var(--${driver.team.name.toLowerCase().replace(' ', '')});|">
+        th:style="|background-color: var(--${driver.team.colorName.toLowerCase().replace(' ', '')});|">
         <div class="left-box">
             <div class="info-box">
                 <p>[[*{firstName}]]</p>

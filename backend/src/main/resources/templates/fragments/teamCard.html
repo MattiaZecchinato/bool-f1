@@ -1,6 +1,6 @@
 <th:block th:fragment="card(team)">
     <div class="team-card" th:object="${team}"
-        th:style="|background-color: var(--${team.name.toLowerCase().replace(' ', '')});|">
+        th:style="|background-color: var(--${team.colorName.toLowerCase().replace(' ', '')});|">
         <div class="car-img-box">
             <img th:src="@{/img/teamImg/carImg/{img}(img=*{carImg})}" th:alt="*{name}">
         </div>
