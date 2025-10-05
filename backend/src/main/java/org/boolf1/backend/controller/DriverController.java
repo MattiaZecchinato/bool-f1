@@ -59,6 +59,7 @@ public class DriverController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("create", true);
+            model.addAttribute("teamsList", teamService.getAll());
             return "driver/createOrEdit";
         }
 
@@ -87,6 +88,7 @@ public class DriverController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("create", false);
+            model.addAttribute("teamsList", teamService.getAll());
             return "driver/createOrEdit";
         }
 
