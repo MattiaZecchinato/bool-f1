@@ -4,6 +4,8 @@
     margin: 2rem;
     margin-bottom: 0;
     color: #fff;
+    background-color: var(--base-team);
+    border-radius: .5rem;
 }
 
 .driver-card {

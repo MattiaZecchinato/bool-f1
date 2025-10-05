@@ -1,12 +1,10 @@
 @import url('/css/colorPalette.css');
 
-* {
-    color: #fff;
-}
-
 .driver-box {
     margin: 2rem;
     margin-bottom: 0;
+    background-color: var(--base-team);
+    border-radius: .5rem;
 }
 
 .team-card {
