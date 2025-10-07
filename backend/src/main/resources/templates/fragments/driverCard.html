@@ -1,6 +1,5 @@
 <th:block th:fragment="card(driver)">
-    <div class="driver-card" th:object="${driver}"
-        th:style="|background-color: var(--${driver.team.colorName.toLowerCase().replace(' ', '')});|">
+    <div class="driver-card" th:object="${driver}">
         <div class="left-box">
             <div class="info-box">
                 <p>[[*{firstName}]]</p>
@@ -8,7 +7,7 @@
             </div>
             <div class="info-box-2">
                 <p>[[*{nationality}]]</p>
-                <p>[[*{team.name}]]</p>
+                <p th:text="*{team != null ? team.name : 'No team'}"></p>
                 <p>[[*{carNumber}]]</p>
             </div>
             <div class="btn-box" sec:authorize="hasAuthority('ADMIN')">
