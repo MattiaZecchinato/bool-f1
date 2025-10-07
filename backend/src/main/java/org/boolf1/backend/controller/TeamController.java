@@ -2,6 +2,7 @@ package org.boolf1.backend.controller;
 
 import java.util.NoSuchElementException;
 
+import org.boolf1.backend.model.Driver;
 import org.boolf1.backend.model.Team;
 import org.boolf1.backend.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,8 +89,14 @@ public class TeamController {
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable("id") Integer teamId) {
 
-        if (teamService.getById(teamId) == null) {
+        Team currentTeam = teamService.getById(teamId);
+
+        if (currentTeam == null) {
             throw new NoSuchElementException("Team not found");
+        }
+
+        for (Driver driver : currentTeam.getDrivers()) {
+            driver.setTeam(null);
         }
 
         teamService.deleteById(teamId);
