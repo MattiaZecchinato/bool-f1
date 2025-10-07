@@ -46,7 +46,6 @@ public class DriverForm {
     @Min(value = 0, message = "The wins cannot be negative")
     private Integer wins;
 
-    @NotNull(message = "You must select a team")
     private Integer teamId;
 
     public Integer getId() {
