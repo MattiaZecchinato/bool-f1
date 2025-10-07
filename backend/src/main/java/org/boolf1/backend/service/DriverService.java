@@ -26,7 +26,11 @@ public class DriverService {
     }
 
     public Driver mapFormToDriver(DriverForm driverForm, Driver driver) {
-        Team team = teamService.getById(driverForm.getTeamId());
+        Team team = null;
+
+        if (driverForm.getTeamId() != null) {
+            team = teamService.getById(driverForm.getTeamId());
+        }
 
         driver.setFirstName(driverForm.getFirstName());
         driver.setLastName(driverForm.getLastName());
@@ -57,7 +61,12 @@ public class DriverService {
         driverForm.setWdc(driver.getWdc());
         driverForm.setPodiums(driver.getPodiums());
         driverForm.setWins(driver.getWins());
-        driverForm.setTeamId(driver.getTeam().getId());
+
+        if (driver.getTeam() != null) {
+            driverForm.setTeamId(driver.getTeam().getId());
+        } else {
+            driverForm.setTeamId(null);
+        }
 
         return driverForm;
     }
